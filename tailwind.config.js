@@ -2,14 +2,19 @@
 import daisyui from 'daisyui'
 // import daisyui from 'daisyui'
 export default {
-  darkMode: 'class', // ডার্ক মোড সক্রিয়
+  darkMode: 'class', 
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      
+    },
+    fontFamily:{
+      poppins:"Poppins, sans-serif"
+    }
   },
   plugins: [daisyui],
   daisyui: {
-    themes: ["light", "dark"], // DaisyUI এর থিম
+    themes: ["light", "dark"], 
   },
  
 }

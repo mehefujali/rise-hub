@@ -11,7 +11,7 @@ const Root = () => {
             document.documentElement.setAttribute('data-theme', theme);
       }, [theme]);
       return (
-            <div>
+            <div className=" font-poppins">
                   <header>
                         <Navbar></Navbar>
                   </header>

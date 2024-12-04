@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { themeContext } from "../../Context/ThemeProvider";
 import './nav.css';
 
 const Navbar = () => {
   const { theme, setTheme } = useContext(themeContext);
-
+  
   const handleChangeTheme = () => {
    
     document.documentElement.classList.toggle('dark');
@@ -109,9 +109,9 @@ const Navbar = () => {
                 </NavLink>
               </ul>
             </div>
-            <a className="btn btn-sm md:btn-md rounded-lg bg-info text-black hover:text-white">
+            <Link to={'/login'} className="btn btn-sm md:btn-md rounded-lg bg-info text-white hover:text-black dark:hover:text-white">
               Login
-            </a>
+            </Link>
           </div>
         </div>
       </div>
