@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 export const themeContext = createContext()
 
 const ThemeProvider = ({children}) => {
-      const [theme, setTheme] = useState('dark');
+      const [theme, setTheme] = useState('light');
 
       return (
             <themeContext.Provider  value={{theme,setTheme}} >
