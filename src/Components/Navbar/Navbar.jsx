@@ -59,7 +59,7 @@ const Navbar = () => {
                 <NavLink to="/allcampaign" className="text-black dark:text-white">
                   All Campaign
                 </NavLink>
-                <NavLink to="/addnewcampaign" className="text-black dark:text-white">
+                <NavLink to="/addCampaign" className="text-black dark:text-white">
                   Add New Campaign
                 </NavLink>
                 <NavLink to="/mydonations" className="text-black dark:text-white">
@@ -101,7 +101,7 @@ const Navbar = () => {
                 <NavLink to="/allcampaign" className="text-black dark:text-white">
                   All Campaign
                 </NavLink>
-                <NavLink to="/addnewcampaign" className="text-black dark:text-white">
+                <NavLink to="/addCampaign" className="text-black dark:text-white">
                   Add New Campaign
                 </NavLink>
                 <NavLink to="/mydonations" className="text-black dark:text-white">
