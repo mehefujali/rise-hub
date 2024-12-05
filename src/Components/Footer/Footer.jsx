@@ -6,7 +6,7 @@ const Footer = () => {
       const { user } = useContext(authContext)
       return (
             <div className="bg-base-300">
-                  <div className="container mx-auto">
+                  <div className="container min-h-56 mx-auto">
                         <footer className="footer  md:w-9/12 mx-auto justify-between   text-base-content p-10">
                               <nav>
                                     <h6 className="footer-title">Services</h6>

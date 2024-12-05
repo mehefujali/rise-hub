@@ -1,0 +1,9 @@
+#numberinput {
+      appearance: none; -moz-appearance: textfield; -webkit-appearance: none
+}
+#form-bg{
+      background-image: url(https://i.ibb.co/VmSY24Q/image.png);
+      background-size: 400px;
+      background-repeat: no-repeat;
+      background-position: top;
+}
