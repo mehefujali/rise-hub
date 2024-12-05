@@ -1,7 +1,9 @@
-import {  Link } from "react-router-dom";
+
 import PrivateRoute from "../../Private/PrivateRoute";
 import { useContext, useEffect, useState } from "react";
 import { authContext } from "../../Context/AuthProvider";
+import { FaEdit } from "react-icons/fa";
+import { MdDeleteOutline } from "react-icons/md";
 
 
 const MyCampign = () => {
@@ -21,7 +23,7 @@ const MyCampign = () => {
                               <div className="overflow-x-auto ">
                                     <table className="table">
                                           {/* head */}
-                                          <thead className=" md:text-lg">
+                                          <thead className=" md:text-lg text-black dark:text-white">
                                                 <tr>
 
                                                       <th>Title</th>
@@ -52,9 +54,12 @@ const MyCampign = () => {
                                                             <td>
                                                                   <h1 className=" text-xs md:text-sm lg:text-lg">{campaign.campaignType}</h1>
                                                             </td>
-                                                            <td className="text-xs md:text-sm lg:text-lg hidden md:flex">{campaign.deadline}</td>
+                                                            <td ><h1 className="text-xs md:text-sm lg:text-lg hidden md:flex">{campaign.deadline}</h1></td>
                                                             <th>
-                                                                  <Link to={`/campaigns/${campaign._id}`} className="btn btn-xs md:btn-md">details</Link>
+                                                                  <div className=" text-2xl flex flex-col h-full justify-between gap-4"> 
+                                                                        <button className=" btn btn-circle text-lg text-black dark:text-white"><FaEdit></FaEdit></button>
+                                                                        <button className=" text-red-500 btn btn-circle text-xl"><MdDeleteOutline></MdDeleteOutline></button>
+                                                                  </div>
                                                             </th>
                                                       </tr>)
                                                 }

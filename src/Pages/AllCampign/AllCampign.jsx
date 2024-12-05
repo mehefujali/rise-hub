@@ -48,7 +48,7 @@ const AllCampign = () => {
                                                 <td>
                                                       <h1 className=" text-xs md:text-sm lg:text-lg">{campaign.campaignType}</h1>
                                                 </td>
-                                                <td className="text-xs md:text-sm lg:text-lg hidden md:flex">{campaign.deadline}</td>
+                                                <td ><h1 className="text-xs md:text-sm lg:text-lg hidden md:flex">{campaign.deadline}</h1></td>
                                                 <th>
                                                       <Link to={`/campaigns/${campaign._id}`} className="btn btn-xs md:btn-md">details</Link>
                                                 </th>
