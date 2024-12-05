@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import './addcampign.css'
 import { authContext } from '../../Context/AuthProvider';
 import PrivateRoute from '../../Private/PrivateRoute';
-import toast from 'react-hot-toast';
+import swal from 'sweetalert';
 
 const AddNewCampign = () => {
       const { user } = useContext(authContext)
@@ -37,7 +37,12 @@ const AddNewCampign = () => {
                   .then(data => {
                         console.log(data);
                         if(data.insertedId){
-                              toast.success("Campaign added successfully!")
+                              swal({
+                                    title: "Good job!",
+                                    text: "Campaign added successfully!",
+                                    icon: "success",
+                                    button: "Ok",
+                                  });
                               form.reset()
                         }
 
