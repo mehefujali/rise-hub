@@ -16,7 +16,7 @@ const CampaignCard = ({ campaign }) => {
                               <p className=" flex items-center gap-1"> <FaRegCalendarCheck className="text-info" /> {deadline} </p>
 
                         </div>
-                        <Link to={`/campaigns/${_id}`} className=" btn btn-sm dark:text-white">See more</Link>
+                        <Link to={`/campaigns/${_id}`} className=" btn btn-sm bg-info dark:text-white">See more</Link>
                   </div>
             </div>
       );

@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
-import { CiCalendarDate } from "react-icons/ci";
+import { useContext, useEffect, useState } from "react";
+import { CiCalendarDate, CiDollar } from "react-icons/ci";
 import { ScrollRestoration, useParams } from "react-router-dom";
 import PrivateRoute from "../../Private/PrivateRoute";
+import { authContext } from "../../Context/AuthProvider";
 
+import swal from "sweetalert";
 const CampaignDetails = () => {
       const { id } = useParams()
-
+      const { user } = useContext(authContext)
 
       const [campaign, setCampaign] = useState({})
-      const { thumbnail, title, campaignType, description, deadline, userEmail, userName } = campaign
+      const { thumbnail, title, campaignType, description, deadline, minimumAmount, _id } = campaign
       useEffect(() => {
             fetch(`http://localhost:5000/campaigns/${id}`)
                   .then(res => res.json())
@@ -17,6 +19,37 @@ const CampaignDetails = () => {
 
                   })
       }, [id])
+
+      const handleDonate = () => {
+            const donateData = {
+                  campaignId: _id,
+                  email: user.email,
+                  userName: user.displayName
+
+
+            }
+            fetch("http://localhost:5000/donated", {
+                  method: 'POST',
+                  headers: {
+                        'content-type': 'application/json'
+                  },
+                  body: JSON.stringify(donateData)
+            })     
+                  .then(res => res.json())
+                  .then(data => {
+                        console.log(data);
+                        if (data.insertedId) {
+                              swal({
+                                    title: "Good job!",
+                                    text: "Donate success!",
+                                    icon: "success",
+                                    button: "Ok",
+                                  });
+                        }
+
+                  })
+
+      }
       return (
             <PrivateRoute>
                   <div className=" container mx-auto my-14 text-black dark:text-white">
@@ -33,9 +66,9 @@ const CampaignDetails = () => {
                                                 <p className=" flex items-center gap-1"><CiCalendarDate className=" text-xl"></CiCalendarDate>{deadline}</p>
                                           </div>
                                           <p>{description}</p>
-                                          <p>{userName}</p>
-                                          <p>{userEmail}</p>
-                                          <button className=" btn w-full bg-info text-black dark:text-white">Donate</button>
+                                          <p className=" flex gap-1 items-center"><CiDollar className=" text-3xl"></CiDollar> {minimumAmount}</p>
+
+                                          <button onClick={handleDonate} className=" btn w-full bg-info text-black dark:text-white">Donate</button>
                                     </div>
                               </div>
                         </div>

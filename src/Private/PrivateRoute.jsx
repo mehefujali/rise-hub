@@ -6,7 +6,7 @@ import Loding from "../Components/Loding/Loding";
 
 const PrivateRoute = ({children}) => {
       const {pathname} = useLocation()
-      console.log(location);
+     
       
       const {user,isLoding} = useContext(authContext)
       if(isLoding){

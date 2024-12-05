@@ -11,6 +11,7 @@ const AddNewCampign = () => {
             const form = e.target
             const thumbnail = form.photo.value
             const title = form.title.value
+            const minimumAmount = form.minamount.value
             const campaignType = form.campaigntype.value
             const description = form.description.value
             const deadline = form.deadline.value
@@ -18,6 +19,7 @@ const AddNewCampign = () => {
             const newCampign = {
                   thumbnail,
                   title,
+                  minimumAmount,
                   campaignType,
                   description,
                   deadline,

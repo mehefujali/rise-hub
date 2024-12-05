@@ -6,6 +6,7 @@ import Register from "../Auth/Register/Register";
 import AllCampign from "../Pages/AllCampign/AllCampign";
 import AddNewCampign from "../Pages/AddNewCampign/AddNewCampign";
 import CampaignDetails from "../Pages/CampaignDetails/CampaignDetails";
+import MyCampign from "../Pages/MyCampign/MyCampign";
 
 
 const Routes = createBrowserRouter([
@@ -40,6 +41,10 @@ const Routes = createBrowserRouter([
                   {
                         path : 'campaigns/:id',
                         element: <CampaignDetails></CampaignDetails>
+                  },
+                  {
+                        path : 'myCampaign',
+                        element: <MyCampign></MyCampign>
                   }
             ]
       }
