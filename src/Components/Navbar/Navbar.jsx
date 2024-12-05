@@ -3,12 +3,22 @@ import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
 import { themeContext } from "../../Context/ThemeProvider";
 import './nav.css';
+import { authContext } from "../../Context/AuthProvider";
+import { FaSignOutAlt, FaUserAlt } from "react-icons/fa";
+import { FaGear } from "react-icons/fa6";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const { theme, setTheme } = useContext(themeContext);
-  
+  const { user, signOutUser } = useContext(authContext)
+  const handleSignOut = () => {
+    signOutUser()
+      .then(() => {
+        toast.success("You have been signed out successfully!")
+      })
+  }
   const handleChangeTheme = () => {
-   
+
     document.documentElement.classList.toggle('dark');
     setTheme(theme === "dark" ? "light" : "dark");
   };
@@ -62,6 +72,9 @@ const Navbar = () => {
                 <NavLink to="/addCampaign" className="text-black dark:text-white">
                   Add New Campaign
                 </NavLink>
+                <NavLink to="/myCampaign" className="text-black dark:text-white">
+                  My Campaign
+                </NavLink>
                 <NavLink to="/mydonations" className="text-black dark:text-white">
                   My Donations
                 </NavLink>
@@ -104,14 +117,47 @@ const Navbar = () => {
                 <NavLink to="/addCampaign" className="text-black dark:text-white">
                   Add New Campaign
                 </NavLink>
+                <NavLink to="/myCampaign" className="text-black dark:text-white">
+                  My Campaign
+                </NavLink>
                 <NavLink to="/mydonations" className="text-black dark:text-white">
                   My Donations
                 </NavLink>
               </ul>
             </div>
-            <Link to={'/login'} className="btn btn-sm md:btn-md rounded-lg bg-info text-white hover:text-black dark:hover:text-white">
-              Login
-            </Link>
+            {
+              user ? <div>
+                <div>
+                  <div className=" flex items-center gap-2">
+
+                    <div className="dropdown dropdown-hover dropdown-end">
+                      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                        <div className="w-10 rounded-full">
+                          <img
+                            alt={user?.displayName}
+                            src={user.photoURL || "https://cdn2.vectorstock.com/i/1000x1000/44/01/default-avatar-photo-placeholder-icon-grey-vector-38594401.jpg"} />
+                        </div>
+                      </div>
+                      <ul
+                        tabIndex={0}
+                        className="menu menu-sm dropdown-content rounded text-blue-600 bg-blue-100 z-[99] mt-3 w-52 p-2 shadow">
+                        <li>
+                          <a className="">
+                            <FaUserAlt></FaUserAlt>
+                            {user.displayName || "Anonymous"}
+                          </a>
+                        </li>
+                        <li><Link ><FaGear></FaGear> Settings</Link></li>
+                        <li onClick={handleSignOut} ><a>
+                          <FaSignOutAlt></FaSignOutAlt> Logout </a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div> : <Link to={'/login'} className="btn btn-sm md:btn-md rounded-lg bg-info text-white hover:text-black dark:hover:text-white">
+                Login
+              </Link>
+            }
           </div>
         </div>
       </div>

@@ -1,10 +1,21 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { authContext } from "../../Context/AuthProvider";
+import toast from "react-hot-toast";
 
 
 const Login = () => {
       const [isSowPass, setSowPass] = useState(false)
+      const {googleLogin,setUser} = useContext(authContext)
+      const handleGoogleLogin = () => {
+            googleLogin()
+            .then(res => {setUser(res.user)
+                  toast.success('Login successfully')
+            }
+            )
+
+      }
       return (
             <div>
                   <div className=" h-[90vh] flex justify-center items-center">
@@ -28,8 +39,8 @@ const Login = () => {
 
                               </form>
                               <div className=" divider">OR</div>
-                              <button className="btn btn-sm md:btn-md w-full md:text-lg dark:text-white"><FaGoogle></FaGoogle>Login with google</button>
-                              <p className=" text-center mt-3 dark:text-white">Dont have an account? <Link className=" text-info  underline" to={'/regiser'}>Register</Link></p>
+                              <button onClick={handleGoogleLogin} className="btn btn-sm md:btn-md w-full md:text-lg dark:text-white"><FaGoogle></FaGoogle>Login with google</button>
+                              <p className=" text-center mt-3 dark:text-white">Dont have an account? <Link className=" text-info  underline" to={'/register'}>Register</Link></p>
                         </div>
                   </div>
             </div>
