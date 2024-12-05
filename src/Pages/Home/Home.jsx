@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Slider from "../../Components/Slider/Slider";
 import CampaignCard from "../../Components/CampaignCard/CampaignCard";
+import FAQ from "../../Components/FAQ/FAQ";
 
 const Home = () => {
       const [runninnCampaigns, setRunningCampaign] = useState([])
@@ -23,6 +24,11 @@ const Home = () => {
                                     runninnCampaigns.map(campaign => <CampaignCard campaign={campaign} key={campaign._id}></CampaignCard>)
                               }
                         </div>
+                  </div>
+                  <div className=" container mx-auto my-10">
+                        <div className=" divider mb-12"><h1 className=" text-2xl md:text-3xl xl:text-4xl">FAQ</h1></div>
+                        
+                        <FAQ></FAQ>
                   </div>
             </div>
       );
