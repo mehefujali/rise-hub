@@ -1,11 +1,12 @@
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import { authContext } from "../../Context/AuthProvider";
 import toast from "react-hot-toast";
 
 
 const Login = () => {
+      const {state} = useLocation()
       const [isSowPass, setSowPass] = useState(false)
       const {googleLogin,setUser,user} = useContext(authContext)
       const handleGoogleLogin = () => {
@@ -16,8 +17,10 @@ const Login = () => {
             )
 
       }
+      
+      
       if (user) {
-          return  <Navigate to={'/'} replace></Navigate>
+          return  <Navigate to={state||'/'} replace></Navigate>
       }
       return (
             <div>

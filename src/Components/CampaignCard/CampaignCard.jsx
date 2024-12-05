@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
 import {  FaRegCalendarCheck } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const CampaignCard = ({ campaign }) => {
-      const { title, thumbnail, campaignType, deadline } = campaign
+      const { title, thumbnail, campaignType, deadline,_id } = campaign
       return (
             <div className=" w-full h-full shadow-md shadow-gray-300 dark:shadow-gray-700 text-black dark:text-white rounded-xl overflow-hidden">
                   <div>
@@ -15,7 +16,7 @@ const CampaignCard = ({ campaign }) => {
                               <p className=" flex items-center gap-1"> <FaRegCalendarCheck className="text-info" /> {deadline} </p>
 
                         </div>
-                        <button className=" btn btn-sm dark:text-white">See more</button>
+                        <Link to={`/campaigns/${_id}`} className=" btn btn-sm dark:text-white">See more</Link>
                   </div>
             </div>
       );

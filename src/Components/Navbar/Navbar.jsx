@@ -66,7 +66,7 @@ const Navbar = () => {
                 <NavLink to="/home" className="text-black dark:text-white">
                   Home
                 </NavLink>
-                <NavLink to="/allcampaign" className="text-black dark:text-white">
+                <NavLink to="/allCampaigns" className="text-black dark:text-white">
                   All Campaign
                 </NavLink>
                 {user && <NavLink to="/addCampaign" className="text-black dark:text-white">
@@ -111,7 +111,7 @@ const Navbar = () => {
                 <NavLink to="/home" className="text-black dark:text-white">
                   Home
                 </NavLink>
-                <NavLink to="/allCampaign" className="text-black dark:text-white">
+                <NavLink to="/allCampaigns" className="text-black dark:text-white">
                   All Campaign
                 </NavLink>
                 {user && <NavLink to="/addCampaign" className="text-black dark:text-white">

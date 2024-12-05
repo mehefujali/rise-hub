@@ -1,7 +1,7 @@
 
 const FAQ = () => {
       return (
-            <div className=" flex flex-col md:flex-row w-11/12 md:w-full mx-auto items-center justify-between gap-14">
+            <div className=" flex flex-col md:flex-row w-11/12 md:w-full mx-auto items-center justify-between gap-14 text-black dark:text-white">
                   <div>
                         <img src="https://i.ibb.co/PxZJzCn/image.png" alt="" />
                   </div>
