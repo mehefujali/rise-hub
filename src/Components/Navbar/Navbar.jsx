@@ -5,7 +5,7 @@ import { themeContext } from "../../Context/ThemeProvider";
 import './nav.css';
 import { authContext } from "../../Context/AuthProvider";
 import { FaSignOutAlt, FaUserAlt } from "react-icons/fa";
-import { FaGear } from "react-icons/fa6";
+
 import toast from "react-hot-toast";
 
 const Navbar = () => {
@@ -69,15 +69,15 @@ const Navbar = () => {
                 <NavLink to="/allcampaign" className="text-black dark:text-white">
                   All Campaign
                 </NavLink>
-                <NavLink to="/addCampaign" className="text-black dark:text-white">
+                {user && <NavLink to="/addCampaign" className="text-black dark:text-white">
                   Add New Campaign
-                </NavLink>
-                <NavLink to="/myCampaign" className="text-black dark:text-white">
+                </NavLink>}
+                {user && <NavLink to="/myCampaign" className="text-black dark:text-white">
                   My Campaign
-                </NavLink>
-                <NavLink to="/mydonations" className="text-black dark:text-white">
+                </NavLink>}
+                {user && <NavLink to="/mydonations" className="text-black dark:text-white">
                   My Donations
-                </NavLink>
+                </NavLink>}
               </ul>
             </div>
             <div className="flex gap-1 items-center">
@@ -111,18 +111,18 @@ const Navbar = () => {
                 <NavLink to="/home" className="text-black dark:text-white">
                   Home
                 </NavLink>
-                <NavLink to="/allcampaign" className="text-black dark:text-white">
+                <NavLink to="/allCampaign" className="text-black dark:text-white">
                   All Campaign
                 </NavLink>
-                <NavLink to="/addCampaign" className="text-black dark:text-white">
+                {user && <NavLink to="/addCampaign" className="text-black dark:text-white">
                   Add New Campaign
-                </NavLink>
-                <NavLink to="/myCampaign" className="text-black dark:text-white">
+                </NavLink>}
+                {user && <NavLink to="/myCampaign" className="text-black dark:text-white">
                   My Campaign
-                </NavLink>
-                <NavLink to="/mydonations" className="text-black dark:text-white">
+                </NavLink>}
+                {user && <NavLink to="/mydonations" className="text-black dark:text-white">
                   My Donations
-                </NavLink>
+                </NavLink>}
               </ul>
             </div>
             {
@@ -147,7 +147,7 @@ const Navbar = () => {
                             {user.displayName || "Anonymous"}
                           </a>
                         </li>
-                        <li><Link ><FaGear></FaGear> Settings</Link></li>
+
                         <li onClick={handleSignOut} ><a>
                           <FaSignOutAlt></FaSignOutAlt> Logout </a></li>
                       </ul>

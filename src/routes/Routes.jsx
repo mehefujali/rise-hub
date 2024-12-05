@@ -3,6 +3,7 @@ import Root from "../Pages/Root/Root";
 import Home from "../Pages/Home/Home";
 import Login from "../Auth/Login/Login";
 import Register from "../Auth/Register/Register";
+import AllCampign from "../Pages/AllCampign/AllCampign";
 
 
 const Routes = createBrowserRouter([
@@ -25,6 +26,10 @@ const Routes = createBrowserRouter([
                   {
                         path:'register',
                         element: <Register></Register>
+                  },
+                  {
+                        path : 'allCampaign',
+                        element: <AllCampign></AllCampign>
                   }
             ]
       }
