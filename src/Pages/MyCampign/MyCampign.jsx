@@ -5,20 +5,27 @@ import { authContext } from "../../Context/AuthProvider";
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { Tooltip } from "react-tooltip";
 
 
 const MyCampign = () => {
-      const {user} = useContext(authContext)
-      const [campaigns,setCampaign] = useState([])
-      useEffect(()=>{
+      const { user } = useContext(authContext)
+      const [campaigns, setCampaign] = useState([])
+      useEffect(() => {
             fetch(`http://localhost:5000/mycampaigns/${user?.email}`)
-            .then(res => res.json())
-            .then(data => {
-                  setCampaign(data)
-            })
-      },[user?.email])
+                  .then(res => res.json())
+                  .then(data => {
+                        setCampaign(data)
+                  })
+      }, [user?.email])
       return (
             <PrivateRoute>
+                  <Tooltip anchorSelect=".update-campaign" place="left">
+                        Update campaign
+                  </Tooltip>
+                  <Tooltip anchorSelect=".delete-campaign" place="left">
+                        Delete campaign
+                  </Tooltip>
                   <div>
                         <div className=" container mx-auto my-20 text-black dark:text-white  ">
                               <div className="overflow-x-auto ">
@@ -44,7 +51,7 @@ const MyCampign = () => {
                                                                               <div className="mask rounded  md:h-24 md:w-40 h-10 w-10 ">
                                                                                     <img
                                                                                           src={campaign.thumbnail}
-                                                                                          alt="Avatar Tailwind CSS Component" />
+                                                                                          alt={campaign.title} />
                                                                               </div>
                                                                         </div>
                                                                         <div>
@@ -57,9 +64,9 @@ const MyCampign = () => {
                                                             </td>
                                                             <td ><h1 className="text-xs md:text-sm lg:text-lg hidden md:flex">{campaign.deadline}</h1></td>
                                                             <th>
-                                                                  <div className=" text-2xl flex flex-col h-full justify-between gap-4"> 
-                                                                        <Link to={`/updateCampaign/${campaign._id}`} className=" btn btn-sm md:btn-md text-sm btn-circle md:text-lg text-black dark:text-white"><FaEdit></FaEdit></Link>
-                                                                        <Link className=" text-red-500 btn btn-sm md:btn-md text-sm btn-circle md:text-xl"><MdDeleteOutline></MdDeleteOutline></Link>
+                                                                  <div className=" text-2xl flex flex-col h-full justify-between gap-4">
+                                                                        <Link to={`/updateCampaign/${campaign._id}`} className="update-campaign btn btn-sm md:btn-md text-sm btn-circle md:text-lg text-black dark:text-white"><FaEdit></FaEdit></Link>
+                                                                        <Link className=" text-red-500 btn btn-sm delete-campaign md:btn-md text-sm btn-circle md:text-xl"><MdDeleteOutline></MdDeleteOutline></Link>
                                                                   </div>
                                                             </th>
                                                       </tr>)
