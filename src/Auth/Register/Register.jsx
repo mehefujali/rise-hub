@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, Navigate, useLocation } from "react-router-dom";
 import { authContext } from "../../Context/AuthProvider";
 import toast from "react-hot-toast";
