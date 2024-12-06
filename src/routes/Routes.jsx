@@ -7,6 +7,7 @@ import AllCampign from "../Pages/AllCampign/AllCampign";
 import AddNewCampign from "../Pages/AddNewCampign/AddNewCampign";
 import CampaignDetails from "../Pages/CampaignDetails/CampaignDetails";
 import MyCampign from "../Pages/MyCampign/MyCampign";
+import UpdateCampaign from "../Pages/UpdateCampaign/UpdateCampaign";
 
 
 const Routes = createBrowserRouter([
@@ -45,6 +46,11 @@ const Routes = createBrowserRouter([
                   {
                         path : 'myCampaign',
                         element: <MyCampign></MyCampign>
+                  },
+                  {
+                        path: 'updateCampaign/:id',
+                        loader: ({params})=>fetch(`http://localhost:5000/campaigns/${params.id}`),
+                        element:<UpdateCampaign></UpdateCampaign>
                   }
             ]
       }

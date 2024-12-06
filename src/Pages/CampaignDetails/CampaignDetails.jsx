@@ -37,7 +37,7 @@ const CampaignDetails = () => {
             })     
                   .then(res => res.json())
                   .then(data => {
-                        console.log(data);
+                       
                         if (data.insertedId) {
                               swal({
                                     title: "Good job!",

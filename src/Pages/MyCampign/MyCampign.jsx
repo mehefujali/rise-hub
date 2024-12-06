@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { authContext } from "../../Context/AuthProvider";
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 
 const MyCampign = () => {
@@ -57,8 +58,8 @@ const MyCampign = () => {
                                                             <td ><h1 className="text-xs md:text-sm lg:text-lg hidden md:flex">{campaign.deadline}</h1></td>
                                                             <th>
                                                                   <div className=" text-2xl flex flex-col h-full justify-between gap-4"> 
-                                                                        <button className=" btn btn-circle text-lg text-black dark:text-white"><FaEdit></FaEdit></button>
-                                                                        <button className=" text-red-500 btn btn-circle text-xl"><MdDeleteOutline></MdDeleteOutline></button>
+                                                                        <Link to={`/updateCampaign/${campaign._id}`} className=" btn btn-sm md:btn-md text-sm btn-circle md:text-lg text-black dark:text-white"><FaEdit></FaEdit></Link>
+                                                                        <Link className=" text-red-500 btn btn-sm md:btn-md text-sm btn-circle md:text-xl"><MdDeleteOutline></MdDeleteOutline></Link>
                                                                   </div>
                                                             </th>
                                                       </tr>)
