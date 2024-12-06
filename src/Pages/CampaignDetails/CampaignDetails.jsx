@@ -21,6 +21,17 @@ const CampaignDetails = () => {
       }, [id])
 
       const handleDonate = () => {
+            const deadlineDate = new Date(deadline)
+            const curentDate = new Date()
+            if(curentDate > deadlineDate){
+                  swal({
+                        title: "Deadline is over!",
+                        text: "Thank you for showing interest",
+                        icon: "error",
+                        button: "Ok",
+                      })
+                  return;
+            }
             const donateData = {
                   campaignId: _id,
                   email: user.email,
