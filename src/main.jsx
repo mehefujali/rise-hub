@@ -7,17 +7,20 @@ import Routes from './routes/Routes.jsx'
 import ThemeProvider from './Context/ThemeProvider.jsx'
 import AuthProvider from './Context/AuthProvider.jsx'
 import { Toaster } from 'react-hot-toast'
+import SignalProvider from './Context/SignalProvider.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AuthProvider>
-      <ThemeProvider>
-        <Toaster
-          position="top-center"
-          reverseOrder={false}
-        />
-        <RouterProvider router={Routes}></RouterProvider>
-      </ThemeProvider>
-    </AuthProvider>
+    <SignalProvider>
+      <AuthProvider>
+        <ThemeProvider>
+          <Toaster
+            position="top-center"
+            reverseOrder={false}
+          />
+          <RouterProvider router={Routes}></RouterProvider>
+        </ThemeProvider>
+      </AuthProvider>
+    </SignalProvider>
   </StrictMode>,
 )

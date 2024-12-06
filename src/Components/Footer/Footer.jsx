@@ -20,7 +20,7 @@ const Footer = () => {
                                     <NavLink to="/home" className="text-black link link-hover dark:text-white">
                                           Home
                                     </NavLink>
-                                    <NavLink to="/allcampaign" className="text-black link link-hover dark:text-white">
+                                    <NavLink to="/allCampaigns" className="text-black link link-hover dark:text-white">
                                           All Campaign
                                     </NavLink>
                                     {user && <NavLink to="/addCampaign" className="text-black link link-hover dark:text-white">

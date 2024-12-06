@@ -8,13 +8,22 @@ import toast from "react-hot-toast";
 const Login = () => {
       const {state} = useLocation()
       const [isSowPass, setSowPass] = useState(false)
-      const {googleLogin,setUser,user} = useContext(authContext)
+      const {googleLogin,setUser,user,loginUser} = useContext(authContext)
       const handleGoogleLogin = () => {
             googleLogin()
             .then(res => {setUser(res.user)
                   toast.success('Login successfully')
             }
             )
+
+      }
+      const handleLogin = (e) => {
+            e.preventDefault()
+            const form = e.target 
+            const email = form.email.value 
+            const password = form.password.value 
+            loginUser(email,password)
+            .then(user => setUser(user.user))
 
       }
       
@@ -29,12 +38,12 @@ const Login = () => {
                               <h1 className=" text-3xl font-bold text-center mb-7 dark:text-white ">Login for <span className="text-xl md:text-3xl font-bold text-info">
                                     RISE<span className="font-normal">hub</span>
                               </span></h1>
-                              <form action="" className=" relative flex flex-col gap-3 w-60 md:w-96 mx-auto  h-fit  ">
+                              <form onSubmit={handleLogin} action="" className=" relative flex flex-col gap-3 w-60 md:w-96 mx-auto  h-fit  ">
                                     
-                                    <input className=" input input-sm md:input-md focus:outline-none border-black dark:border-white" placeholder="Your email" type="text" />
+                                    <input name="email" className=" input input-sm md:input-md focus:outline-none border-black dark:border-white" placeholder="Your email" type="text" />
                                     
                                     <label htmlFor="" className=" relative w-full">
-                                          <input className=" w-full input input-sm md:input-md focus:outline-none border-black dark:border-white" placeholder="Password" type={`${isSowPass ? 'text' : 'password'}`} />
+                                          <input name="password" className=" w-full input input-sm md:input-md focus:outline-none border-black dark:border-white" placeholder="Password" type={`${isSowPass ? 'text' : 'password'}`} />
                                           <div onClick={() => setSowPass(!isSowPass)} className=" absolute right-4  bottom-[7px] md:bottom-[14px] text-lg md:text-2xl cursor-pointer">
                                                 {
                                                       isSowPass ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
@@ -46,7 +55,7 @@ const Login = () => {
                               </form>
                               <div className=" divider">OR</div>
                               <button onClick={handleGoogleLogin} className="btn btn-sm md:btn-md w-full md:text-lg dark:text-white"><FaGoogle></FaGoogle>Login with google</button>
-                              <p className=" text-center mt-3 dark:text-white">Dont have an account? <Link className=" text-info  underline" to={'/register'}>Register</Link></p>
+                              <p className=" text-center mt-3 dark:text-white">Dont have an account? <Link state={state} className=" text-info  underline" to={'/register'}>Register</Link></p>
                         </div>
                   </div>
             </div>

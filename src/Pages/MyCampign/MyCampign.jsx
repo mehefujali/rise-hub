@@ -6,9 +6,11 @@ import { FaEdit } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
-
+import swal from "sweetalert";
+import { signalContext } from "../../Context/SignalProvider";
 
 const MyCampign = () => {
+      const {signal,setSignal} = useContext(signalContext)
       const { user } = useContext(authContext)
       const [campaigns, setCampaign] = useState([])
       useEffect(() => {
@@ -17,7 +19,40 @@ const MyCampign = () => {
                   .then(data => {
                         setCampaign(data)
                   })
-      }, [user?.email])
+      }, [user?.email,signal])
+
+      const handleDeleteCampaign = async (id) => {
+            swal({
+                  title: "Are you sure?",
+                  text: "Once deleted, you will not be able to recover this imaginary file!",
+                  icon: "warning",
+                  buttons: true,
+                  dangerMode: true,
+            })
+                  .then((willDelete) => {
+                        if (willDelete) {
+                              fetch(`http://localhost:5000/mycampaigns/${id}`, {
+                                    method: 'DELETE'
+                              })
+                                    .then(res => res.json())
+                                    .then(data => {
+                                          if (data.deletedCount) {
+                                                swal("Deleted!", "Your cmapaign has been deleted!", "success");
+                                                setSignal(Math.random)
+                                          }
+                                         
+
+                                    })
+
+                        } else {
+                              return
+                        }
+                  });
+           
+
+
+
+      }
       return (
             <PrivateRoute>
                   <Tooltip anchorSelect=".update-campaign" place="left">
@@ -76,7 +111,7 @@ const MyCampign = () => {
                                                             <th>
                                                                   <div className=" text-2xl flex flex-col h-full justify-between gap-4">
                                                                         <Link to={`/updateCampaign/${campaign._id}`} className="update-campaign btn btn-sm md:btn-md text-sm btn-circle md:text-lg text-black dark:text-white"><FaEdit></FaEdit></Link>
-                                                                        <Link className=" text-red-500 btn btn-sm delete-campaign md:btn-md text-sm btn-circle md:text-xl"><MdDeleteOutline></MdDeleteOutline></Link>
+                                                                        <Link onClick={() => handleDeleteCampaign(campaign._id)} className=" text-red-500 btn btn-sm delete-campaign md:btn-md text-sm btn-circle md:text-xl"><MdDeleteOutline></MdDeleteOutline></Link>
                                                                   </div>
                                                             </th>
                                                       </tr>)
