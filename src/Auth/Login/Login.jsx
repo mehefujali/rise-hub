@@ -23,7 +23,14 @@ const Login = () => {
             const email = form.email.value 
             const password = form.password.value 
             loginUser(email,password)
-            .then(user => setUser(user.user))
+            .then(user => {setUser(user.user)
+                  toast.success('Login successfully')
+            })
+            .catch(()=> {
+                  toast.error('Incorrect username or password! Please try again.')
+                  
+                  
+            })
 
       }
       

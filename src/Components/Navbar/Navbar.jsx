@@ -80,7 +80,7 @@ const Navbar = () => {
                 </NavLink>}
               </ul>
             </div>
-            <Link  to="/" className="flex gap-1 items-center">
+            <Link to="/" className="flex gap-1 items-center">
               <img
                 className="w-8 md:w-12"
                 src="https://i.ibb.co/N6LmGPq/Untitled-1.png"
@@ -154,9 +154,14 @@ const Navbar = () => {
                     </div>
                   </div>
                 </div>
-              </div> : <Link to={'/login'} className="btn btn-sm md:btn-md rounded-lg bg-info text-white hover:text-black dark:hover:text-white">
-                Login
-              </Link>
+              </div> : <div className=" flex gap-2 ">
+                <Link to={'/login'} className="btn btn-sm md:btn-md rounded-lg bg-info text-white hover:text-black dark:hover:text-white">
+                  Login
+                </Link>
+                <Link to={'/register'} className="btn t btn-outline btn-sm md:btn-md rounded-lg border-info  text-info">
+                  Register
+                </Link>
+              </div>
             }
           </div>
         </div>

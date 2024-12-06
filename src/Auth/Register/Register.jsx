@@ -18,12 +18,26 @@ const Register = () => {
             const email = form.email.value
             const photo = form.photo.value
             const password = form.password.value
+            const uppercasePattern = /[A-Z]/
+            const lowercasePattern = /[a-z]/;
+            if (!uppercasePattern.test(password)){
+                  toast.error('Password is invalid. It must contain at least one uppercase letter')
+                  return
+            }
+            if(!lowercasePattern.test(password)){
+                  toast.error('Password is invalid. It must contain at least one lowercase letter.')
+                  return
+            }
+            if(password.length < 6) {
+                  toast.error('Password is invalid. It must be at least 6 characters long')
+                  return
+            }
             emailRegiser(email, password)
                   .then((res) => {
                         setUser(res.user)
                         updateUser({ displayName: name, photoURL: photo })
                               .then(() => {
-                                    toast.success('Account created')
+                                    toast.success(`Account created successfully! Welcome, ${name}`)
                                     
                                     setUser({ displayName: name, photoURL: photo })
 
