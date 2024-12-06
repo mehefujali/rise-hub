@@ -71,8 +71,8 @@ const Register = () => {
                                           <input className=" btn btn-sm md:btn-md bg-info text-white" type="submit" name="" id="" value={'Create account'} />
 
                                     </form>
-                                    <div className=" divider">OR</div>
-                                    <button className="btn btn-sm md:btn-md w-full md:text-lg dark:text-white"><FaGoogle></FaGoogle>Login with google</button>
+                                    <div className=" divider"></div>
+                                    
                                     <p className=" text-center mt-3 dark:text-white">Already have an account? <Link className=" text-info  underline" to={'/login'}>Login</Link></p>
                               </div>
                         </div>
