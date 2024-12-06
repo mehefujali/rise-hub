@@ -9,6 +9,7 @@ import './slider.css'
 
 // import required modules
 import { Autoplay, Pagination } from 'swiper/modules';
+import { Link } from 'react-router-dom';
 
 const Slider = () => {
       return (
@@ -38,9 +39,9 @@ const Slider = () => {
                                                 <p className='text-gray-200 text-sm md:text-md'>
                                                      {` Support creative ideas, life-changing causes, and innovative startups. Whether it's a personal need or a groundbreaking project, your contribution makes all the difference.`}
                                                 </p>
-                                                <button className='btn-sm md:btn-md btn bg-info text-white border-none'>
+                                                <Link to={'/addCampaign'} className='btn-sm md:btn-md btn bg-info text-white border-none'>
                                                       Start Your Campaign
-                                                </button>
+                                                </Link >
                                           </div>
                                     </div>
                               </div>
@@ -55,9 +56,9 @@ const Slider = () => {
                                                 <p className='text-gray-200 text-sm md:text-md'>
                                                       Join thousands of backers who are transforming lives. Your small contribution can create a big impact. Be part of the change today!
                                                 </p>
-                                                <button className='btn-sm md:btn-md btn bg-info text-white border-none'>
+                                                <Link to={'/register'} className='btn-sm md:btn-md btn bg-info text-white border-none'>
                                                       Join Now
-                                                </button>
+                                                </Link>
                                           </div>
                                     </div>
                               </div>
@@ -72,9 +73,9 @@ const Slider = () => {
                                                 <p className='text-gray-200 text-sm md:text-md'>
                                                       Browse through diverse initiatives that are shaping the future. Find the projects that inspire you and contribute to their success.
                                                 </p>
-                                                <button className='btn-sm md:btn-md btn bg-info text-white border-none'>
+                                                <Link to={'/allCampaigns'} className='btn-sm md:btn-md btn bg-info text-white border-none'>
                                                       Browse Projects
-                                                </button>
+                                                </Link>
                                           </div>
                                     </div>
                               </div>
