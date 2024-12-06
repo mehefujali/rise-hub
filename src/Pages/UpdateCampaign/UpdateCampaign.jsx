@@ -3,13 +3,14 @@ import swal from "sweetalert";
 import { authContext } from "../../Context/AuthProvider";
 import PrivateRoute from "../../Private/PrivateRoute";
 import { ScrollRestoration, useLoaderData } from "react-router-dom";
+import { Typewriter } from "react-simple-typewriter";
 const UpdateCampaign = () => {
       const { user } = useContext(authContext)
       const campaign = useLoaderData()
 
 
       const { thumbnail, title, campaignType, description, deadline, minimumAmount, _id } = campaign
-      const handleAddcampaign = (e) => {
+      const handleUpdatecampaign = (e) => {
             e.preventDefault()
             const form = e.target
             const thumbnail = form.photo.value
@@ -29,8 +30,10 @@ const UpdateCampaign = () => {
                   userEmail: user.email,
                   userName: user.displayName
             }
-            fetch('http://localhost:5000/campaigns', {
-                  method: "POST",
+            console.log(newCampign);
+            
+            fetch(`http://localhost:5000/campaigns/${_id}`, {
+                  method: "PUT",
                   headers: {
                         'content-type': 'application/json'
                   },
@@ -38,15 +41,16 @@ const UpdateCampaign = () => {
             })
                   .then(res => res.json())
                   .then(data => {
-
-                        if (data.insertedId) {
+                    
+                    
+                        if (data.modifiedCount) {
                               swal({
                                     title: "Good job!",
-                                    text: "Campaign added successfully!",
+                                    text: "Campaign Update successfully!",
                                     icon: "success",
                                     button: "Ok",
                               });
-                              form.reset()
+                             
                         }
 
                   })
@@ -59,12 +63,23 @@ const UpdateCampaign = () => {
                         <div className=" container mx-auto">
                               <div className=" mt-12">
                                     <div>
-                                          <h1 className=" text-xl font-bold md:text-3xl xl:text-4xl text-center text-black dark:text-white">Manage Your Campaign</h1>
+                                          <h1 className=" text-xl font-bold md:text-3xl xl:text-4xl text-center text-black dark:text-white">
+                                          <Typewriter
+                                                            words={['Manage Your Campaign']}
+                                                            loop={1}
+                                                            cursor
+                                                            cursorStyle='_'
+                                                            typeSpeed={70}
+                                                            deleteSpeed={50}
+                                                            delaySpeed={1000}
+
+                                                      />
+                                                </h1>
                                           <p className=" text-black dark:text-white text-center mt-3 font-light md:text-lg">Take control of your campaign by editing and managing details with ease.</p>
                                     </div>
                                     <div className=" my-12 w-11/12 lg:w-8/12 xl:w-1/2  mx-auto " id='form-bg'>
                                           <div>
-                                                <form onSubmit={handleAddcampaign} action="" className=" grid grid-cols-12 gap-3 md:gap-6 text-black dark:text-white p-7 pt-96  border-2 rounded-lg ">
+                                                <form onSubmit={handleUpdatecampaign} action="" className=" grid grid-cols-12 gap-3 md:gap-6 text-black dark:text-white p-7 pt-96  border-2 rounded-lg ">
                                                       <label htmlFor="" className=" md:col-span-6  col-span-12 ">
                                                             <p>Thumbnail</p>
                                                             <input defaultValue={thumbnail} type="text" placeholder="Image URL" name="photo" className=" input  input-sm md:input-md w-full  border-black dark:border-white focus:outline-none" id="" />

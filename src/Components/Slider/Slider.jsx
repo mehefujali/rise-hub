@@ -32,6 +32,7 @@ const Slider = () => {
                                     <div className='flex justify-center items-center h-full w-full'>
                                           <div className='w-11/12 md:w-1/2 mx-auto space-y-4 text-center'>
                                                 <h1 className='text-xl md:text-4xl font-bold text-white text-center'>
+                                                      
                                                       Together, we can make your vision a reality!
                                                 </h1>
                                                 <p className='text-gray-200 text-sm md:text-md'>

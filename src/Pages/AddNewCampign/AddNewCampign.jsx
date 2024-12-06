@@ -3,6 +3,7 @@ import './addcampign.css'
 import { authContext } from '../../Context/AuthProvider';
 import PrivateRoute from '../../Private/PrivateRoute';
 import swal from 'sweetalert';
+import { Typewriter } from 'react-simple-typewriter';
 
 const AddNewCampign = () => {
       const { user } = useContext(authContext)
@@ -35,14 +36,14 @@ const AddNewCampign = () => {
             })
                   .then(res => res.json())
                   .then(data => {
-                      
-                        if(data.insertedId){
+
+                        if (data.insertedId) {
                               swal({
                                     title: "Good job!",
                                     text: "Campaign added successfully!",
                                     icon: "success",
                                     button: "Ok",
-                                  });
+                              });
                               form.reset()
                         }
 
@@ -54,7 +55,19 @@ const AddNewCampign = () => {
                   <div className=" container mx-auto">
                         <div className=" mt-12">
                               <div>
-                                    <h1 className=" text-xl font-bold md:text-3xl xl:text-4xl text-center text-black dark:text-white">Share Your Vision with the World</h1>
+
+                                    <h1 className=" text-xl font-bold md:text-3xl xl:text-4xl text-center text-black dark:text-white">
+                                          <Typewriter
+                                                words={['Share Your Vision with the World']}
+                                                loop={1}
+                                                cursor
+                                                cursorStyle='_'
+                                                typeSpeed={70}
+                                                deleteSpeed={50}
+                                                delaySpeed={1000}
+
+                                          />
+                                    </h1>
                                     <p className=" text-black dark:text-white text-center mt-3 font-light md:text-lg">Whether it’s a personal need, a startup, or a creative idea, share your story and gather support.</p>
                               </div>
                               <div className=" my-12 w-11/12 lg:w-8/12 xl:w-1/2  mx-auto " id='form-bg'>
