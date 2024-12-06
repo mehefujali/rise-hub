@@ -27,7 +27,7 @@ const AddNewCampign = () => {
                   userEmail: user.email,
                   userName: user.displayName
             }
-            fetch('http://localhost:5000/campaigns', {
+            fetch('https://rise-hub-server.vercel.app/campaigns', {
                   method: "POST",
                   headers: {
                         'content-type': 'application/json'

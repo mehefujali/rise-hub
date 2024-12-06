@@ -52,7 +52,7 @@ const Routes = createBrowserRouter([
                   },
                   {
                         path: 'updateCampaign/:id',
-                        loader: ({ params }) => fetch(`http://localhost:5000/campaigns/${params.id}`),
+                        loader: ({ params }) => fetch(`https://rise-hub-server.vercel.app/campaigns/${params.id}`),
                         element: <UpdateCampaign></UpdateCampaign>
                   },
                   {

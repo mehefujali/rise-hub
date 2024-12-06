@@ -32,7 +32,7 @@ const UpdateCampaign = () => {
             }
             console.log(newCampign);
             
-            fetch(`http://localhost:5000/campaigns/${_id}`, {
+            fetch(`https://rise-hub-server.vercel.app/campaigns/${_id}`, {
                   method: "PUT",
                   headers: {
                         'content-type': 'application/json'

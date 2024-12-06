@@ -8,7 +8,7 @@ import { Typewriter } from "react-simple-typewriter";
 const Home = () => {
       const [runninnCampaigns, setRunningCampaign] = useState([])
       useEffect(() => {
-            fetch("http://localhost:5000/campaigns/runningCampaign")
+            fetch("https://rise-hub-server.vercel.app/campaigns/runningCampaign")
                   .then(res => res.json())
                   .then(data => setRunningCampaign(data))
       }, [])

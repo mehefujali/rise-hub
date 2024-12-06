@@ -12,7 +12,7 @@ const CampaignDetails = () => {
       const [campaign, setCampaign] = useState({})
       const { thumbnail, title, campaignType, description, deadline, minimumAmount, _id } = campaign
       useEffect(() => {
-            fetch(`http://localhost:5000/campaigns/${id}`)
+            fetch(`https://rise-hub-server.vercel.app/campaigns/${id}`)
                   .then(res => res.json())
                   .then(data => {
                         setCampaign(data)
@@ -39,7 +39,7 @@ const CampaignDetails = () => {
 
 
             }
-            fetch("http://localhost:5000/donated", {
+            fetch("https://rise-hub-server.vercel.app/donated", {
                   method: 'POST',
                   headers: {
                         'content-type': 'application/json'

@@ -14,7 +14,7 @@ const MyCampign = () => {
       const { user } = useContext(authContext)
       const [campaigns, setCampaign] = useState([])
       useEffect(() => {
-            fetch(`http://localhost:5000/mycampaigns/${user?.email}`)
+            fetch(`https://rise-hub-server.vercel.app/mycampaigns/${user?.email}`)
                   .then(res => res.json())
                   .then(data => {
                         setCampaign(data)
@@ -31,7 +31,7 @@ const MyCampign = () => {
             })
                   .then((willDelete) => {
                         if (willDelete) {
-                              fetch(`http://localhost:5000/mycampaigns/${id}`, {
+                              fetch(`https://rise-hub-server.vercel.app/mycampaigns/${id}`, {
                                     method: 'DELETE'
                               })
                                     .then(res => res.json())
