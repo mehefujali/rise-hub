@@ -8,16 +8,18 @@ import AddNewCampign from "../Pages/AddNewCampign/AddNewCampign";
 import CampaignDetails from "../Pages/CampaignDetails/CampaignDetails";
 import MyCampign from "../Pages/MyCampign/MyCampign";
 import UpdateCampaign from "../Pages/UpdateCampaign/UpdateCampaign";
+import Error from "../Pages/Error/Error";
 
 
 const Routes = createBrowserRouter([
       {
+            errorElement: <Error></Error>,
             path: '/',
             element: <Root></Root>,
             children: [
                   {
-                      path: '/',
-                      element : <Navigate to={'/home'} replace ></Navigate>
+                        path: '/',
+                        element: <Navigate to={'/home'} replace ></Navigate>
                   },
                   {
                         path: 'home',
@@ -28,11 +30,11 @@ const Routes = createBrowserRouter([
                         element: <Login></Login>
                   },
                   {
-                        path:'register',
+                        path: 'register',
                         element: <Register></Register>
                   },
                   {
-                        path : 'allCampaigns',
+                        path: 'allCampaigns',
                         element: <AllCampign></AllCampign>
                   },
                   {
@@ -40,17 +42,17 @@ const Routes = createBrowserRouter([
                         element: <AddNewCampign></AddNewCampign>
                   },
                   {
-                        path : 'campaigns/:id',
+                        path: 'campaigns/:id',
                         element: <CampaignDetails></CampaignDetails>
                   },
                   {
-                        path : 'myCampaign',
+                        path: 'myCampaign',
                         element: <MyCampign></MyCampign>
                   },
                   {
                         path: 'updateCampaign/:id',
-                        loader: ({params})=>fetch(`http://localhost:5000/campaigns/${params.id}`),
-                        element:<UpdateCampaign></UpdateCampaign>
+                        loader: ({ params }) => fetch(`http://localhost:5000/campaigns/${params.id}`),
+                        element: <UpdateCampaign></UpdateCampaign>
                   }
             ]
       }

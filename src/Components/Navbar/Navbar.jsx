@@ -80,7 +80,7 @@ const Navbar = () => {
                 </NavLink>}
               </ul>
             </div>
-            <div className="flex gap-1 items-center">
+            <Link  to="/" className="flex gap-1 items-center">
               <img
                 className="w-8 md:w-12"
                 src="https://i.ibb.co/N6LmGPq/Untitled-1.png"
@@ -89,7 +89,7 @@ const Navbar = () => {
               <h2 className="text-xl md:text-3xl font-bold text-info">
                 RISE<span className="font-normal">hub</span>
               </h2>
-            </div>
+            </Link>
           </div>
           <div className="navbar-end">
             <div className="navbar-center hidden lg:flex mr-6">
