@@ -37,6 +37,10 @@ const CampaignDetails = () => {
             }
             const donateData = {
                   campaignId: _id,
+                  thumbnail,
+                  title,
+                  minimumAmount,
+                  deadline,
                   email: user.email,
                   userName: user.displayName
 
