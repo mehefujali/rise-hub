@@ -71,8 +71,8 @@ const CampaignDetails = () => {
                               <div className=" container mx-auto my-14 text-black dark:text-white">
                                     <ScrollRestoration></ScrollRestoration>
                                     <div className=" w-11/12 md:w-9/12 lg:w-2/4  mx-auto">
-                                          <div className=" w-fit rounded-xl overflow-hidden shadow-md shadow-gray-300 dark:shadow-gray-700 ">
-                                                <div>
+                                          <div className=" w-full rounded-xl overflow-hidden shadow-md shadow-gray-300 dark:shadow-gray-700 ">
+                                                <div className=" w-full">
                                                       <img className=" object-cover w-full" src={thumbnail} alt="" />
                                                 </div>
                                                 <div className=" mt-6 p-8 space-y-2">
