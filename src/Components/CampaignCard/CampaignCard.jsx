@@ -3,7 +3,7 @@ import {  FaRegCalendarCheck } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const CampaignCard = ({ campaign,linkId }) => {
-      const { title, thumbnail, campaignType, deadline,_id } = campaign
+      const { title, thumbnail, campaignType, deadline } = campaign
       return (
             <div className=" w-full h-full shadow-md shadow-gray-300 dark:shadow-gray-700 text-black dark:text-white rounded-xl overflow-hidden">
                   <div>
@@ -23,6 +23,7 @@ const CampaignCard = ({ campaign,linkId }) => {
 };
 
 CampaignCard.propTypes = {
-      campaign: PropTypes.object.isRequired
+      campaign: PropTypes.object.isRequired,
+      linkId:PropTypes.array.isRequired
 }
 export default CampaignCard;
