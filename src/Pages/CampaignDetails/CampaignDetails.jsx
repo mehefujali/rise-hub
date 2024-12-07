@@ -39,7 +39,7 @@ const CampaignDetails = () => {
                   campaignId: _id,
                   thumbnail,
                   title,
-                  minimumAmount,
+                  campaignType,
                   deadline,
                   email: user.email,
                   userName: user.displayName

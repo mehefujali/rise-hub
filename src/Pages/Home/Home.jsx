@@ -40,7 +40,7 @@ const Home = () => {
                         {
                               loding ? <Loding></Loding> : <div className=" grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12 2xl:w-full w-11/12 mx-auto">
                                     {
-                                          runninnCampaigns.map(campaign => <CampaignCard campaign={campaign} key={campaign._id}></CampaignCard>)
+                                          runninnCampaigns.map(campaign => <CampaignCard campaign={campaign} key={campaign._id} linkId={campaign._id}></CampaignCard>)
                                     }
                               </div>
                         }

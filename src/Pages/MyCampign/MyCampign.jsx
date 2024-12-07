@@ -70,7 +70,7 @@ const MyCampign = () => {
                               <div>
 
                                     <h1 className=" text-xl font-bold md:text-3xl xl:text-4xl text-center text-black dark:text-white">
-                                          Your Campaigns
+                                          My Campaigns
                                     </h1>
                                     <p className=" text-black dark:text-white text-center mt-3 font-light md:text-lg">View and manage all the campaigns you’ve created. Track progress, update details, and engage with your supporters in one place</p>
                               </div>
