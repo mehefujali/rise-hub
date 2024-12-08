@@ -6,7 +6,7 @@ const Footer = () => {
       const { user } = useContext(authContext)
       return (
             <footer className="footer footer-center bg-base-200 text-base-content rounded p-10">
-                  <nav className="grid grid-flow-col gap-4">
+                  <nav className=" flex gap-4 flex-col md:flex-row">
                         
                         <NavLink to="/home" className="text-black link link-hover dark:text-white">
                               Home

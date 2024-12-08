@@ -25,7 +25,7 @@ const Home = () => {
                         <div className="my-12">
                               <h1 className=" divider flex  items-center gap-1 text-xl md:text-3xl lg:text-4xl font-bold text-center  text-black dark:text-white">  <div className=" w-7 h-7 rounded-full bg-info "></div>
                                     <Typewriter
-                                          words={['Running Campaign', 'Support Dreams, Empower Ideas!']}
+                                          words={['Running Campaign', 'Support Dreams']}
                                           loop={true}
                                           cursor
                                           cursorStyle='_'
