@@ -75,11 +75,11 @@ const AddNewCampign = () => {
                                           <form onSubmit={handleAddcampaign} action="" className=" grid grid-cols-12 gap-3 md:gap-6 text-black dark:text-white p-7 pt-96  border-2 rounded-lg ">
                                                 <label htmlFor="" className=" md:col-span-6  col-span-12 ">
                                                       <p>Thumbnail</p>
-                                                      <input type="text" placeholder="Image URL" name="photo" className=" input  input-sm md:input-md w-full  border-black dark:border-white focus:outline-none" id="" />
+                                                      <input required type="text" placeholder="Image URL" name="photo" className=" input  input-sm md:input-md w-full  border-black dark:border-white focus:outline-none" id="" />
                                                 </label>
                                                 <label htmlFor="" className=" md:col-span-6  col-span-12">
                                                       <p>Campaign title</p>
-                                                      <input type="text" placeholder="Enter Campaign title" name="title" className=" input  input-sm md:input-md w-full  border-black dark:border-white focus:outline-none" id="" />
+                                                      <input required type="text" placeholder="Enter Campaign title" name="title" className=" input  input-sm md:input-md w-full  border-black dark:border-white focus:outline-none" id="" />
                                                 </label>
                                                 <label htmlFor="" className=" md:col-span-6  col-span-12">
                                                       <p>Campaigntype</p>
@@ -92,19 +92,19 @@ const AddNewCampign = () => {
                                                 </label>
                                                 <label htmlFor="" className=" md:col-span-6  col-span-12">
                                                       <p>description</p>
-                                                      <input type="text" placeholder="Enter description" name="description" className=" input input-sm md:input-md  w-full   border-black dark:border-white focus:outline-none" id="" />
+                                                      <input required type="text" placeholder="Enter description" name="description" className=" input input-sm md:input-md  w-full   border-black dark:border-white focus:outline-none" id="" />
                                                 </label>
                                                 <label htmlFor="" className=" md:col-span-6  col-span-12">
                                                       <p>Minimum donation amount</p>
-                                                      <input type="number" placeholder="Enter amount" name="minamount" className=" input input-sm md:input-md appearance-none  w-full  border-black dark:border-white focus:outline-none" id="numberinput" />
+                                                      <input required type="number" placeholder="Enter amount" name="minamount" className=" input input-sm md:input-md appearance-none  w-full  border-black dark:border-white focus:outline-none" id="numberinput" />
                                                 </label>
                                                 <label htmlFor="" className=" md:col-span-6  col-span-12">
                                                       <p>Deadline</p>
-                                                      <input type="date" placeholder="Image URL" name="deadline" className=" input input-sm md:input-md  w-full  border-black dark:border-white focus:outline-none" id="" />
+                                                      <input required type="date" placeholder="Image URL" name="deadline" className=" input input-sm md:input-md  w-full  border-black dark:border-white focus:outline-none" id="" />
                                                 </label>
                                                 <label htmlFor="" className=" md:col-span-6  col-span-12">
                                                       <p>User Email</p>
-                                                      <input value={user?.email} disabled={true} type="text" placeholder="Image URL" name="" className=" input  input-sm md:input-md w-full  border-black dark:border-white focus:outline-none" id="" />
+                                                      <input  value={user?.email} disabled={true} type="text" placeholder="Image URL" name="" className=" input  input-sm md:input-md w-full  border-black dark:border-white focus:outline-none" id="" />
                                                 </label>
                                                 <label htmlFor="" className=" md:col-span-6  col-span-12">
                                                       <p>User Name</p>
