@@ -10,7 +10,7 @@ A modern crowdfunding platform that connects supporters with campaigns to bring 
 
 - Dynamic Campaign Management: Add, update, and track campaigns effortlessly with an intuitive interface.  
 - Secure Donations: Donate seamlessly with secure data storage for every transaction.  
-- Private Routes for Users: Authenticated access to manage campaigns and ensure data privacy.  
+- Private Routes for Users: Authenticated access to manage campaigns and ensure data privacy.   
 - Dark and Light Modes: Toggle between themes for enhanced user experience.  
 - Responsive Design: Fully optimized for all devices, including desktops, tablets, and mobiles.  
 - Engaging Animations and Notifications: Powered by modern libraries for a better user experience.  
